@@ -1,0 +1,20 @@
+import xlrd
+import matplotlib.pyplot as plt
+workbook=xlrd.open_workbook("/home/sid/Desktop/Untitled.xls")
+sheet_1=workbook.sheet_by_index(0)
+r=0
+li, l = [], []
+x=sheet_1.row(r)
+y=sheet_1.col(r)
+for r in range(sheet_1.nrows):
+  print(sheet_1.row(r)[0].value)
+  li.append(sheet_1.row(r)[0].value)
+for r2 in range(sheet_1.nrows):
+  l.append(sheet_1.row(r2)[3].value)
+plt.title("TITLE")
+plt.xlabel('X TABLE')
+plt.ylabel('y TABLE')
+plt.scatter(li,l)
+plt.show()
+print(sheet_1.nrows)
+print(sheet_1.ncols)
